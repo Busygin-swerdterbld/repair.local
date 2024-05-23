@@ -25,12 +25,16 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'login' => fake()->unique()->name(),
+            'position' => '',
+            'office_id' => 1,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
     }
+
 
     /**
      * Indicate that the model's email address should be unverified.
@@ -40,5 +44,19 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+    /**
+     * Базовая учетная запись администратора
+     */
+    public function admin(): static
+    {
+        return $this->state(
+            fn (array $attributes) => [
+                'name' => 'Столбов Сергей Юрьевич',
+                'login' => 'admin',
+                'position' => 'admin',
+                'password' => Hash::make('password'),
+            ]
+        );
     }
 }
