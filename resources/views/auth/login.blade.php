@@ -5,16 +5,14 @@
   <h2 class="main__title">
     Авторизация
   </h2>
-  <form class="main__form form" 
-        action="{{ route('login') }}" method="post">
+  <form class="main__form form" action="{{ route('login') }}" method="post">
     @csrf
 
     <div class="form__row">
       <label for="login" class="form__label">
         Логин
       </label>
-      <input type="text" id="login" name="login" 
-       class="form__input @error('login') form__input_error @enderror"
+      <input type="text" id="login" name="login" class="form__input @error('login') form__input_error @enderror"
         value="{{ old('login') }}">
       @error('login')
         <div class="form__message">
@@ -39,8 +37,7 @@
 
     <div class="form__row">
       <label for="remember" class="form__label">
-        <input type="checkbox" id="remember" name="remember" 
-               class="form__checkbox" @checked(old('remember'))>
+        <input type="checkbox" id="remember" name="remember" class="form__checkbox" @checked(old('remember'))>
         Запомнить меня
       </label>
     </div>

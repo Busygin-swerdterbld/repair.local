@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class LoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Форма аутентификации
@@ -24,7 +17,6 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-
 
 
     /**
@@ -36,7 +28,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        // получаем только login и пароль
+        // получаем только емейл и пароль
         $credentials = $request->only('login', 'password');
         // Метод attempt
         // вернет true, если аутентификация прошла успешно.

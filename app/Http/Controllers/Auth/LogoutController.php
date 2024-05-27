@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class LogoutController extends Controller
 {
-    //
     /**
      * Выход пользователя из приложения.
      *
